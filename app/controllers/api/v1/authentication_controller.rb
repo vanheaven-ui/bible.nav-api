@@ -1,4 +1,4 @@
-class AuthenticationController < ApplicationController
+class Api::V1::AuthenticationController < ApplicationController
 
   def login
     user = User.find_by!(username: login_params[:username])
