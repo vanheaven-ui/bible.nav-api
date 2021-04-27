@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   root 'home#index'
 
   post '/signup', to: 'users#signup'
+  post '/login', to: 'authentication#login'
 end
