@@ -1,5 +1,7 @@
 class Api::V1::AuthenticationController < ApplicationController
 
+  skip_before_action :authorized, only: :login
+  
   def login
     user = User.find_by!(username: login_params[:username])
     if user.authenticate(login_params[:password])

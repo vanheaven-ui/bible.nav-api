@@ -1,5 +1,7 @@
 class Api::V1::UsersController < ApplicationController
 
+  skip_before_action :authorized, only: :signup
+  
   def signup
     @user = User.create!(signup_params)
     @token = issue_token(@user)
