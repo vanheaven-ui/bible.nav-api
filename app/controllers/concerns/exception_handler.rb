@@ -2,6 +2,7 @@ module ExceptionHandler
   extend ActiveSupport::Concern
 
   class AuthenticationError < StandardError; end
+  class InvalidToken < StandardError; end
 
   included do
     rescue_from ActiveRecord::RecordNotFound do |e|
@@ -10,6 +11,7 @@ module ExceptionHandler
 
     rescue_from ActiveRecord::RecordInvalid, with: :four_twenty_two
     rescue_from ExceptionHandler::AuthenticationError, with: :unauthorized_request
+    rescue_from ExceptionHandler::InvalidToken, with: :four_twenty_two
   end
 
   private
