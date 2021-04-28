@@ -3,12 +3,12 @@ class ApplicationController < ActionController::API
 
   before_action :authorized
 
-  def jwt_key
+  def my_secret
     Rails.application.secrets.secret_key_base
   end
 
   def issue_token(user)
-    JWT.encode({ user_id: user.id }, jwt_key, 'HS256')
+    JWT.encode({ user_id: user.id }, my_secret, 'HS256')
   end
 
   def token
@@ -17,9 +17,9 @@ class ApplicationController < ActionController::API
 
   def decoded_token
     begin
-      JWT.decode(token, jwt_key, true, { algorthm: 'HS256' })
-    rescue JWT::DecodeError => e
-      raise ExceptionHandler::InvalidToken, e.message
+      JWT.decode(token, my_secret, true, { :algorithm => 'HS256' })
+    rescue JWT::DecodeError
+      [{error: "Invalid Token"}]
     end
   end
 
@@ -28,7 +28,7 @@ class ApplicationController < ActionController::API
   end
 
   def current_user
-    user ||= User.find_by!(id: user_id)
+    @user ||= User.find_by(id: user_id)
   end
 
   def logged_in?
@@ -36,6 +36,6 @@ class ApplicationController < ActionController::API
   end
 
   def authorized
-    render(json: { error: 'Please login ' }, status: :unauthorized) unless logged_in?
+    render(json: { message: 'Please log in' }, status: :unauthorized) unless logged_in?
   end
 end
