@@ -8,10 +8,6 @@ class Api::V1::AuthenticationController < ApplicationController
     else
       render json: { error: 'Invalid password' }, status: :unauthorized
     end
-    # rescue ExceptionHandler::AuthenticationError => e
-    #   [{ message: e.message }]
-
-
   end
 
   private
