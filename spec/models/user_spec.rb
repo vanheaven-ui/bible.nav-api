@@ -5,7 +5,7 @@ RSpec.describe User, type: :model do
     it { should have_many(:favorites).with_foreign_key(:created_by) }
     it { should have_many(:comments).with_foreign_key(:written_by) }
   end
-  
+
   describe 'validations' do
     it { should validate_presence_of(:username) }
     it { should validate_presence_of(:email) }

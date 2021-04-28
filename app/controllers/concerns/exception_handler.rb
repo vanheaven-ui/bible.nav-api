@@ -2,6 +2,7 @@ module ExceptionHandler
   extend ActiveSupport::Concern
 
   class AuthenticationError < StandardError; end
+
   class InvalidToken < StandardError; end
 
   included do
@@ -16,11 +17,11 @@ module ExceptionHandler
 
   private
 
-  def four_twenty_two(e)
-    render json: { message: e.message }, status: :unprocessable_entity
+  def four_twenty_two(error)
+    render json: { message: error.message }, status: :unprocessable_entity
   end
 
-  def unauthorized_request(e)
-    render json: { message: e.message }, status: :unauthorized
+  def unauthorized_request(error)
+    render json: { message: error.message }, status: :unauthorized
   end
 end

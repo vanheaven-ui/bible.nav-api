@@ -16,11 +16,9 @@ class ApplicationController < ActionController::API
   end
 
   def decoded_token
-    begin
-      JWT.decode(token, my_secret, true, { :algorithm => 'HS256' })
-    rescue JWT::DecodeError
-      [{error: "Invalid Token"}]
-    end
+    JWT.decode(token, my_secret, true, { algorithm: 'HS256' })
+  rescue JWT::DecodeError
+    [{ error: 'Invalid Token' }]
   end
 
   def user_id
@@ -28,7 +26,7 @@ class ApplicationController < ActionController::API
   end
 
   def current_user
-    @user ||= User.find_by(id: user_id)
+    @current_user ||= User.find_by(id: user_id)
   end
 
   def logged_in?
