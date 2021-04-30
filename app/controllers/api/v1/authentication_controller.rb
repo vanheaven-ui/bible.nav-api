@@ -11,6 +11,11 @@ class Api::V1::AuthenticationController < ApplicationController
     end
   end
 
+  def show
+    @user = User.find_by(id: user_id)
+    render json: { user: @user }
+  end
+
   private
 
   def login_params
