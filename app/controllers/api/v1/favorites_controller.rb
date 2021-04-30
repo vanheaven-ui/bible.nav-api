@@ -14,7 +14,6 @@ class Api::V1::FavoritesController < ApplicationController
 
   def show
     render json: { favorite: @favorite}
-    head :no_content
   end
 
   def destroy
@@ -25,10 +24,10 @@ class Api::V1::FavoritesController < ApplicationController
   private 
 
   def favorite_params
-    params.permit(:book_name, :chapter_num, :verse_num, :verse)
+    params.permit(:book_name, :chapter_num, :verse_num, :verse, :user_id)
   end
 
   def set_favorite
-    @favorite = current_user.favorites.find(favorite_params[:id])
+    @favorite = current_user.favorites.find_by(id: favorite_params[:id]) if current_user
   end
 end
