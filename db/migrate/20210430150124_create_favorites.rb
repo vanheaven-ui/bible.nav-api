@@ -4,8 +4,8 @@ class CreateFavorites < ActiveRecord::Migration[6.1]
       t.string :book_name
       t.string :chapter_num
       t.string :verse_num
-      t.text :verse
-      t.string :created_by
+      t.string :verse
+      t.references :user, null: false, foreign_key: true
 
       t.timestamps
     end
