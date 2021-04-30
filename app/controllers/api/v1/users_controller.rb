@@ -7,6 +7,10 @@ class Api::V1::UsersController < ApplicationController
     render json: { user: @user, jwt: @token }, status: :created
   end
 
+  def show
+    render json: { user: current_user }
+  end
+
   private
 
   def signup_params
