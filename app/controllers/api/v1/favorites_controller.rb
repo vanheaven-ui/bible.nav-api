@@ -2,8 +2,6 @@ class Api::V1::FavoritesController < ApplicationController
 
   before_action :set_favorite, only: %i[show destroy]
 
-  skip_before_action :authorized
-
   def index
     @favorites = current_user.favorites
     render json: { favorites: @favorites }
