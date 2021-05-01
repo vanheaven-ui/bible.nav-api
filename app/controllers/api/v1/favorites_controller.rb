@@ -8,12 +8,11 @@ class Api::V1::FavoritesController < ApplicationController
   end
   
   def create
-    @favorite = current_user.favorites.create!(favorite_params)
     render json: { favorite: @favorite }, status: :created
   end
 
   def show
-    render json: { favorite: @favorite}
+    render json: { favorite: @favorite }
   end
 
   def destroy
@@ -28,6 +27,6 @@ class Api::V1::FavoritesController < ApplicationController
   end
 
   def set_favorite
-    @favorite = current_user.favorites.find_by(id: favorite_params[:id]) if current_user
+    @favorite = current_user.favorites.find_by(id: favorite_params[:id])
   end
 end
