@@ -10,6 +10,7 @@ class Api::V1::FavoritesController < ApplicationController
   end
   
   def create
+    @favorite = current_user.favorites.create!(favorite_params)
     render json: { favorite: @favorite }, status: :created
   end
 
