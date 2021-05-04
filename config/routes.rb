@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  
-  resources :favorites
+
   root 'home#index'
 
   namespace :api do
