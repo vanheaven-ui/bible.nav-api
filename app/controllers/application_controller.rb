@@ -4,7 +4,7 @@ class ApplicationController < ActionController::API
   before_action :authorized
 
   def my_secret
-    Rails.application.secrets.secret_key_base
+    'my_secret'
   end
 
   def issue_token(user)
