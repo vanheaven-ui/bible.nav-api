@@ -13,12 +13,15 @@ class ApplicationController < ActionController::API
 
   def token
     request.headers['Authorization'].split(' ').last
+  rescue NoMethodError 
+    raise ExceptionHandler::MissingToken, 'Missing token'
+
   end
 
   def decoded_token
     JWT.decode(token, my_secret, true, { algorithm: 'HS256' })
   rescue JWT::DecodeError
-    [{ error: 'Invalid Token' }]
+    raise ExceptionHandler::InvalidToken, 'Invalid token'
   end
 
   def user_id
