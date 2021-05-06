@@ -7,7 +7,7 @@ class Api::V1::AuthenticationController < ApplicationController
       token = issue_token(user)
       render json: { user: user, jwt: token }
     else
-      render json: { error: 'Invalid password' }, status: :unauthorized
+      render json: { error: 'Invalid password' }, status: :unprocessable_entity
     end
   end
 
