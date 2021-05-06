@@ -19,8 +19,6 @@ class Api::V1::FavoritesController < ApplicationController
   def destroy
     @favorite.destroy
     head :no_content
-  rescue ActiveRecord::RecordNotFound => e
-    render json: { error: e.message }, status: :unprocessable_entity
   end
 
   private 
@@ -30,6 +28,6 @@ class Api::V1::FavoritesController < ApplicationController
   end
 
   def set_favorite
-    @favorite = current_user.favorites.find_by(id: favorite_params[:id])
+    @favorite = current_user.favorites.find_by!(id: favorite_params[:id])
   end
 end
