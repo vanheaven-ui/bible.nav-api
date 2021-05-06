@@ -19,6 +19,8 @@ class Api::V1::FavoritesController < ApplicationController
   def destroy
     @favorite.destroy
     head :no_content
+  rescue ActiveRecord::RecordNotFound => e
+    render json: { error: e.message }, status: :unprocessable_entity
   end
 
   private 
