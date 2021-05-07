@@ -1,8 +1,9 @@
 module ControllerSpecHelper
-  MY_SECRET = Rails.application.secrets.secret_key_base
+  
+  TEST_SECRET = Rails.application.secrets.secret_key_base
 
   def token_generator(user_id)
-    JWT.encode({ user_id: user_id }, MY_SECRET)
+    JWT.encode({ user_id: user_id }, TEST_SECRET)
   end
 
   def valid_headers
