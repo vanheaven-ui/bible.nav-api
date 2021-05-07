@@ -3,8 +3,7 @@ class Api::V1::UsersController < ApplicationController
 
   def signup
     @user = User.create!(signup_params)
-    @token = issue_token(@user)
-    render json: { user: @user, jwt: @token }, status: :created
+    render json: { user: @user }, status: :created
   end
 
   def show
