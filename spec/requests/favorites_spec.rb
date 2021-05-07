@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "Favorites API", type: :request do
   let(:user) { create(:user) }
-  let(:favorites) { create_list(:favorite, 10, user_id: user.id) }
+  let!(:favorites) { create_list(:favorite, 10, user_id: user.id) }
   let(:headers) { valid_headers }
   let(:invalid_header) { invalid_headers }
   let(:user_id) { user.id }
@@ -11,8 +11,9 @@ RSpec.describe "Favorites API", type: :request do
   describe "GET /api/v1/users/user_id/favorites" do
     context 'when user is logged in' do
       before { get "/api/v1/users/#{user_id}/favorites", headers: headers }
+
       it 'returns user\'s favorites' do
-        expect(json.length).to eq(10)
+        expect(json['favorites'].size).to eq(10)
       end
 
       it 'returns status code 200' do
@@ -33,15 +34,76 @@ RSpec.describe "Favorites API", type: :request do
   end
 
   describe 'GET /api/v1/users/user_id/favorites/id' do
-    before { get "api/v1/users/#{user_id}/favorites/#{id}", headers: headers }
+    before { get "/api/v1/users/#{user_id}/favorites/#{id}", headers: headers }
+
+    context 'when favorite exists' do
+      it 'returns status code 200' do
+        expect(response).to have_http_status(200)
+      end
+
+      it 'returns the favorite' do
+        expect(json['favorite']).not_to be_empty
+      end
+    end
+
+    context 'when the favorite does not exist' do
+      let(:id) { 100 }
+      it 'returns status code 404' do
+        puts json
+        expect(response).to have_http_status(404)
+      end
+
+      it 'returns failure message' do
+        expect(json['message']).to match(/Couldn't find Favorite/)
+      end
+    end
   end
 
   describe 'POST /api/v1/users/user_id/favorites' do
-    before { get "api/v1/users/#{user_id}/favorites", headers: headers }
+    let(:valid_params) { favorites.first }
+    let(:invalid_params) do
+      attributes_for(:favorite, verse_num: '')
+    end
+    context 'with valid parameters' do
+      
+
+      it 'creates the favorite' do
+        expect(json['favorite']).not_to be_empty
+      end
+before { post "/api/v1/users/#{user_id}/favorites", params: valid_params.to_json, headers: headers }
+      it 'returns status code 201' do
+        expect(response).to have_http_status(201)
+      end
+    end
+
+    context 'with invalid parameters' do
+      before { post "/api/v1/users/#{user_id}/favorites", params: invalid_params.to_json, headers: headers }
+      it 'returns status code 422' do
+        expect(response).to have_http_status(422)
+        puts invalid_params
+      end
+
+      it 'returns failure message' do
+        expect(json['message']).to match(/Validation failed: Verse num can't be blank/)
+      end
+    end
   end
 
   describe 'DELETE /api/v1/users/user_id/favorites/id' do
-    before { delete "api/v1/users/#{user_id}/favorites/#{id}", headers: headers }
+    before { delete "/api/v1/users/#{user_id}/favorites/#{id}", headers: headers }
+
+    context 'when favorite exists' do
+      it 'returns status 204' do
+        expect(response).to have_http_status(204)
+      end
+
+      it 'removes favorite' do
+        expect(favorites[id]).to be_nil
+      end
+    end
+
+    context 'when favorite does not exist' do
+    end
   end
 
 end
