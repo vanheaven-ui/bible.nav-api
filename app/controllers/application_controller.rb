@@ -8,7 +8,7 @@ class ApplicationController < ActionController::API
   end
 
   def issue_token(user)
-    JWT.encode({ user_id: user.id }, my_secret, 'HS256')
+    JWT.encode({ user_id: user.id }, 'my_secret', 'HS256')
   end
 
   def token
@@ -18,7 +18,7 @@ class ApplicationController < ActionController::API
   end
 
   def decoded_token
-    JWT.decode(token, my_secret, true, { algorithm: 'HS256' })
+    JWT.decode(token, 'my_secret', true, { algorithm: 'HS256' })
   rescue JWT::DecodeError
     raise ExceptionHandler::InvalidToken, 'Invalid token'
   end
