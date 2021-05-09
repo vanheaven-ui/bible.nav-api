@@ -6,6 +6,10 @@ class Api::V1::UsersController < ApplicationController
     render json: { user: @user }, status: :created
   end
 
+  def show
+    render json: { user: User.find(params[:id]) }
+  end
+
   private
 
   def signup_params
