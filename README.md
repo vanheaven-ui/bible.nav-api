@@ -3,12 +3,12 @@
   {
 
   <a href="https://github.com/vanheaven-ui/bible.nav-ui">
-    <img src="src/images/logo.png" alt="Logo" width="80" height="80">
+    <img src="./logo/logo1.png" alt="Logo" width="50px" height="50px">
   </a>
 
   }
 
-  <h3 align="center">Bible.nav Backend</h3>
+  <h3 align="center">Bible.nav Backend API</h3>
 
   <p align="center">
     The back end of the Bible.nav application.
@@ -16,9 +16,10 @@
     <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://guarded-springs-59282.herokuapp.com/">View Demo</a>
+    .
+    <a href="https://github.com/vanheaven-ui/bible.nav-api/issues">Report Issue</a>
     ·
-    <a href="https://github.com/vanheaven-ui/bible.nav-ui/issues">Request Feature</a>
+    <a href="https://github.com/vanheaven-ui/bible.nav-api/issues">Request Feature</a>
   </p>
 </p>
 
@@ -40,6 +41,7 @@
         <li><a href="#run">Run</a></li>
       </ul>
     </li>
+    <li><a href="#tests">Testing</a></li>
     <li><a href="#author">Author</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#acknowledgements">Acknowledgements</a></li>
@@ -51,14 +53,13 @@
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
 
-This project was completed to fulfill the final capstone requirements at [Microverse Inc](). The application in this project was built to aid navigating the bible for specific verses, an idea that was inspired by the find your house concept. The design of the application herein was inspired by [behance stuff]().
+The API developed in this project serves to expose 7 endpoints to the User Interface built using React with the main objective to the fulfill full-stack web development requirements for the final capstone study project at [Microverse Inc](https://www.microverse.org/). The project specificifications were explicit on using RAILS for the development with the necessary code linters and ensuring proper Git workflow. 
 
 ### Built With
 
 Below is a list of the tools used to complete this project.
-* [Bootstrap](https://react-bootstrap.github.io/)
-* [Redux](https://redux.js.org/)
-* [React](https://reactjs.org/)
+* [Ruby on Rails](https://rubyonrails.org/)
+* [PostgreSQL](https://www.postgresql.org/)
 
 ## Getting Started
 
@@ -67,42 +68,57 @@ To get a local copy up and running follow these simple example steps.
 ### Prerequisites
 
 Ensure you have the following running in your local environment.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
-* NodeJs
+* ruby '2.7.2' or greater
+  <br />
+
+  [Visit:](https://www.ruby-lang.org/en/downloads/)
+
+* Rails 6.1.3.1 or greater
   <br>
 
-  [visit](https://nodejs.org/en/download/)
+  [Visit:](https://guides.rubyonrails.org/v5.0/getting_started.html)
 
 ### 🔨 Setup
 
 To get a copy of the project on your computer:
 
 - Clone or download the repository to a local directory on your computer by following the Github instructions at [Github clone/download repository](https://docs.github.com/en/enterprise/2.13/user/articles/cloning-a-repository).
+<br />
+Forexample: 
+  + Navigate to a folder where you want the project to reside
+  + Run the following command in the terminal
+```sh
+  git clone https://github.com/vanheaven-ui/bible.nav-api.git
+```
 
 ### 🛠 Installing <a name = "ins"></a>
 
 Once you have a local copy of the entire project on your computer, then:
 
-- If you don't meet the above prerequisites, visit [node download and installations docs](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) to install node js and npm.
-- Change directory into the directory where you cloned the repository.
 - Open the project directory in your editor of choice. For example running `code .` will open the project in VSCode.
-- Run `npm install` to install the project dependencies in the package.json file.
+- Run `bundle install` to install the project dependencies resident in the Gemfile.
 
-### Application <a name = "app"></a>
+### Run <a name = "app"></a>
 
 With the installations above complete, you are set to locally use the code. Follow these simple steps:
 
-- Run `npm start` to start webpack-dev-server.
-- If everything worked well, the browser should automatically render the application on `http://localhost:3000/`.
+- Run `rails s` or `rails server` to start the Rails server.
+- If everything worked well, type `http://localhost:3000/` in the browser and you should get the index page of the application.
 
 ## 🧪 Testing <a name= "tests"></a>
 
-Jest and React Testing Library were used to test the code herein.
+### Tools
+
+The following tools were used to write the tests for the API.
+
+- Rspec
+- FactoryBot
+- Faker
+
+### Test Run
+
 To run the tests, simply type:
-- `npm test` or `npm run test` in the terminal and hit enter. This will run the npm test script
+- `bundle exec rspec` or `rspec` in the terminal and hit enter. This will run tests.
 
 ## ✒️ Author <a name = "author"></a>
 
@@ -117,7 +133,7 @@ To run the tests, simply type:
 
 Contributions, issues and feature requests are welcome!
 
-- To create an issue, visit the [issues page](https://github.com/vanheaven-ui/React-calc/issues) and create a new issue.
+- To create an issue, visit the [issues page](https://github.com/vanheaven-ui/bible.nav-api/issues) and create a new issue.
 - To contribute to the code base, follow the steps below:
   1. Fork this repository to your remote respository by clicking the Fork button in this repository.
   2. Clone this repository to a directory on your computer by following Github guidelines.
