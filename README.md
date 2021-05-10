@@ -2,13 +2,7 @@
 <p align="center">
 
   <a href="https://github.com/vanheaven-ui/bible.nav-ui">
-    {
-      <br />
-      Bible.nav: {
-        <img src="logo/logo.png" alt="Logo" width="80" height="80">
-      }
-      <br />
-    }    
+    <img src="logo/logo.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Bible.nav Backend API</h3>
@@ -98,7 +92,7 @@ Ensure you have the following running in your local environment.
 
   [Visit:](https://guides.rubyonrails.org/v5.0/getting_started.html)
 
-### 🔨 Setup
+### 🔨 Setup <a name = "setup"></a>
 
 To get a copy of the project on your computer:
 
@@ -111,14 +105,14 @@ Forexample:
   git clone https://github.com/vanheaven-ui/bible.nav-api.git
 ```
 
-### 🛠 Installing <a name = "ins"></a>
+### 🛠 Installing <a name = "installation"></a>
 
 Once you have a local copy of the entire project on your computer, then:
 
 - Open the project directory in your editor of choice. For example running `code .` will open the project in VSCode.
 - Run `bundle install` to install the project dependencies resident in the Gemfile.
 
-### Run <a name = "app"></a>
+### Run <a name = "run"></a>
 
 With the installations above complete, you are set to locally use the code. Follow these simple steps:
 
@@ -149,7 +143,7 @@ To run the tests, simply type:
 - Linkedin: [@linkedin](https://www.linkedin.com/in/vanheaven/)
 - Email: [ezekiel](mailto:vanheaven6@gmail.com)
 
-## 🤝 Contributing
+## 🤝 Contributing <a name = "contributing"></a>
 
 Contributions, issues and feature requests are welcome!
 
@@ -168,7 +162,7 @@ Contributions, issues and feature requests are welcome!
 
 Give a ⭐️ if you like this project!
 
-## :clap: Acknowledgements
+## :clap: Acknowledgements <a name = "acknowledgements"></a>
 
 - [Microverse Community](https://www.microverse.org/) <br />
 - [React Official Documentation](https://reactjs.org/)
