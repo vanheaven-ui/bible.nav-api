@@ -69,6 +69,8 @@ The base URL is: https://biblenav-api.herokuapp.com
  |    POST     | /api/v1/users/:id/favorites     |  Add favorite   |      book_name, chapter_num, verse_num, verse      |
  |   DELETE    | /api/v1/users/:id/favorites/:id | Remove favorite |                                                    |
  
+ For the detailed documentation, [click here](https://documenter.getpostman.com/view/15394592/TzRSh7rx)
+ 
 ### Built With
 
 Below is a list of the tools used to complete this project.
