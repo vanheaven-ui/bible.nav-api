@@ -61,7 +61,10 @@ The API developed in this project serves to expose 7 endpoints to the User Inter
 
 ### Endpoints
 The following endpoints are exposed for use with the front end application [here]().
- 
+ | VERB/METHOD |        PATH        |  PURPOSE    | REQUIRED PARAMETERS |
+ | ----------- | ------------------ | --------    | ------------------- |
+ | POST        | /api/v1/signup     | User signup | username, email,    |
+
 
 ### Built With
 
