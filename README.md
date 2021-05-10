@@ -1,12 +1,15 @@
 <br />
 <p align="center">
-  {
 
   <a href="https://github.com/vanheaven-ui/bible.nav-ui">
-    <img src="logo/logo1.png" alt="Logo" width="50px" height="50px">    
+    {
+      <br />
+      Bible.nav: {
+        <img src="logo/logo.png" alt="Logo" width="80" height="80">
+      }
+      <br />
+    }    
   </a>
-
-  }
 
   <h3 align="center">Bible.nav Backend API</h3>
 
