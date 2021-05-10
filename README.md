@@ -60,12 +60,21 @@
 The API developed in this project serves to expose 7 endpoints to the User Interface built using React with the main objective to the fulfill full-stack web development requirements for the final capstone study project at [Microverse Inc](https://www.microverse.org/). The project specificifications were explicit on using RAILS for the development with the necessary code linters and ensuring proper Git workflow.
 
 ### Endpoints
-The following endpoints are exposed for use with the front end application [here]().
- | VERB/METHOD |        PATH        |  PURPOSE    | REQUIRED PARAMETERS |
- | ----------- | ------------------ | --------    | ------------------- |
- | POST        | /api/v1/signup     | User signup | username, email,    |
 
+The following endpoints are exposed for use with the [front end application here](https://github.com/vanheaven-ui/bible.nav-ui).
 
+The base URL is: https://biblenav-api.herokuapp.com
+
+ | VERB/METHOD |               PATH              |     PURPOSE     |             REQUIRED PARAMETERS(Body)              |
+ | ----------- | ------------------------------- | --------------- | -------------------------------------------------- |
+ |    POST     | /api/v1/signup                  |   User signup   | username, email, password, password_confirmation   |
+ |    POST     | /api/v1/login                   |   User login    |                  username, password                |
+ |    GET      | /api/v1/users/:id               | Logged in user  |                                                    |
+ |    GET      | /api/v1/users/:id/favorites     |  get favorites  |                                                    |
+ |    GET      | /api/v1/users/:id/favorites/:id |  get favorite   |                                                    |
+ |    POST     | /api/v1/users/:id/favorites     |  Add favorite   |      book_name, chapter_num, verse_num, verse      |
+ |   DELETE    | /api/v1/users/:id/favorites/:id | Remove favorite |                                                    |
+ 
 ### Built With
 
 Below is a list of the tools used to complete this project.
