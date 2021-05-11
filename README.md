@@ -2,7 +2,9 @@
 <p align="center">
 
   <a href="https://github.com/vanheaven-ui/bible.nav-ui">
-    <img src="logo/logo.png" alt="Logo" width="80" height="80">
+
+  <img src="logo/logo.png" alt="Logo" width="80" height="80">
+
   </a>
 
   <h3 align="center">Bible.nav Backend API</h3>
@@ -51,7 +53,7 @@
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
 
-The API developed in this project serves to expose 7 endpoints to the User Interface built using React with the main objective to the fulfill full-stack web development requirements for the final capstone study project at [Microverse Inc](https://www.microverse.org/). The project specificifications were explicit on using RAILS for the development with the necessary code linters and ensuring proper Git workflow.
+The API developed in this project serves to expose 7 endpoints to the user interface built using React with the main objective of fulfilling the full-stack web development requirements for the final capstone study project at [Microverse Inc](https://www.microverse.org/). The project specificifications were explicit on using RAILS for the development and the use of code linters while ensuring proper Git workflow.
 
 ### Endpoints
 

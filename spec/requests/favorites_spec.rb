@@ -23,12 +23,13 @@ RSpec.describe "Favorites API", type: :request do
 
     context 'when user is not logged in' do
       before { get "/api/v1/users/#{user_id}/favorites", headers: invalid_header }
+
       it 'returns status code 422' do
         expect(response).to have_http_status(422)
       end
 
       it 'returns failure message' do
-        expect(json['message']).to match(/Invalid token/)
+        expect(json['message']).to match(/Invalid token, please login/)
       end
     end
   end
@@ -49,7 +50,6 @@ RSpec.describe "Favorites API", type: :request do
     context 'when the favorite does not exist' do
       let(:id) { 100 }
       it 'returns status code 404' do
-        puts json
         expect(response).to have_http_status(404)
       end
 
@@ -65,12 +65,12 @@ RSpec.describe "Favorites API", type: :request do
       attributes_for(:favorite, verse_num: '')
     end
     context 'with valid parameters' do
-      
+      before { post "/api/v1/users/#{user_id}/favorites", params: valid_params.to_json, headers: headers }
 
       it 'creates the favorite' do
         expect(json['favorite']).not_to be_empty
       end
-before { post "/api/v1/users/#{user_id}/favorites", params: valid_params.to_json, headers: headers }
+
       it 'returns status code 201' do
         expect(response).to have_http_status(201)
       end
@@ -80,7 +80,6 @@ before { post "/api/v1/users/#{user_id}/favorites", params: valid_params.to_json
       before { post "/api/v1/users/#{user_id}/favorites", params: invalid_params.to_json, headers: headers }
       it 'returns status code 422' do
         expect(response).to have_http_status(422)
-        puts invalid_params
       end
 
       it 'returns failure message' do
