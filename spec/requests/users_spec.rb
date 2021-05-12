@@ -6,11 +6,13 @@ RSpec.describe 'Users API', type: :request do
   let(:valid_attributes) do
     attributes_for(:user, password_confirmation: user.password)
   end
-  let(:invalid_payload) {{
-    username: 'van',
-    password: 'nav12345',
-    email: 'eg@email.domain'
-  }}
+  let(:invalid_payload) do
+    {
+      username: 'van',
+      password: 'nav12345',
+      email: 'eg@email.domain'
+    }
+  end
 
   describe 'POST /api/v1/signup' do
     context 'when request is valid' do
@@ -33,9 +35,8 @@ RSpec.describe 'Users API', type: :request do
       end
 
       it 'returns failure message' do
-        expect(json['message']).to match(/Validation failed: Password confirmation can't be blank/
-        )
+        expect(json['message']).to match(/Validation failed: Password confirmation can't be blank/)
       end
-    end    
+    end
   end
 end

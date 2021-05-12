@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Favorites API", type: :request do
+RSpec.describe 'Favorites API', type: :request do
   let(:user) { create(:user) }
   let!(:favorites) { create_list(:favorite, 10, user_id: user.id) }
   let(:headers) { valid_headers }
@@ -8,7 +8,7 @@ RSpec.describe "Favorites API", type: :request do
   let(:user_id) { user.id }
   let(:id) { favorites.first.id }
 
-  describe "GET /api/v1/users/user_id/favorites" do
+  describe 'GET /api/v1/users/user_id/favorites' do
     context 'when user is logged in' do
       before { get "/api/v1/users/#{user_id}/favorites", headers: headers }
 
@@ -100,9 +100,5 @@ RSpec.describe "Favorites API", type: :request do
         expect(favorites[id]).to be_nil
       end
     end
-
-    context 'when favorite does not exist' do
-    end
   end
-
 end

@@ -1,5 +1,4 @@
 module ControllerSpecHelper
-  
   # TEST_SECRET = Rails.application.secrets.secret_key_base
 
   def token_generator(user_id)
@@ -8,15 +7,15 @@ module ControllerSpecHelper
 
   def valid_headers
     {
-      "Authorization" => token_generator(user.id),
-      "Content-Type" => "application/json"
+      'Authorization' => token_generator(user.id),
+      'Content-Type' => 'application/json'
     }
   end
 
   def invalid_headers
     {
-      "Authorization": nil,
-      "Content-Type" => "application/json"
+      Authorization: nil,
+      'Content-Type' => 'application/json'
     }
   end
 end

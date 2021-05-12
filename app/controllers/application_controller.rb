@@ -13,7 +13,7 @@ class ApplicationController < ActionController::API
 
   def token
     request.headers['Authorization']
-  rescue ExceptionHandler::MissingToken => e
+  rescue ExceptionHandler::MissingToken
     render json: { error: 'Missing token, please login' }
   end
 

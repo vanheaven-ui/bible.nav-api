@@ -3,22 +3,22 @@ require 'rails_helper'
 RSpec.describe 'Authentications API', type: :request do
   let(:user) { create(:user) }
   let(:headers) { valid_headers.except('Authorization') }
-  let(:valid_credentials) do 
+  let(:valid_credentials) do
     {
       username: user.username,
-      password: user.password,
+      password: user.password
     }.to_json
   end
   let(:invalid_credentials) do
     {
       username: Faker::Internet.username,
-      password: Faker::Internet.password,
-  }.to_json
+      password: Faker::Internet.password
+    }.to_json
   end
   describe 'POST /api/v1/login' do
     context 'when request is valid' do
       before { post '/api/v1/login', params: valid_credentials, headers: headers }
-      
+
       it 'returns an authentication token' do
         expect(json['jwt']).not_to be_nil
       end
@@ -34,6 +34,6 @@ RSpec.describe 'Authentications API', type: :request do
       it 'returns status code 404' do
         expect(response).to have_http_status(404)
       end
-    end    
+    end
   end
 end
