@@ -6,7 +6,7 @@
   <p align="center">
     The back end of the Bible.nav application.
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/vanheaven-ui/bible.nav-api"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     .
