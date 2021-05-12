@@ -94,8 +94,9 @@ To get a copy of the project on your computer:
 - Clone or download the repository to a local directory on your computer by following the Github instructions at [Github clone/download repository](https://docs.github.com/en/enterprise/2.13/user/articles/cloning-a-repository).
 <br />
 Forexample: 
-  + Navigate to a folder where you want the project to reside
-  + Run the following command in the terminal
+<br />
+- Navigate to a folder where you want the project to reside
+- Run the following command in the terminal
 ```sh
   git clone https://github.com/vanheaven-ui/bible.nav-api.git
 ```
