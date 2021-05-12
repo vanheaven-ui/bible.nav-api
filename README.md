@@ -112,7 +112,7 @@ Once you have a local copy of the entire project on your computer, then:
 With the installations above complete, you are set to locally use the code. Follow these simple steps:
 
 - Run `rails s` or `rails server` to start the Rails server.
-- If everything worked well, type `http://localhost:3000/` in the browser and you should get the index page of the application.
+- Type `http://localhost:3000/` in the browser and you should get the index page of the application if everything worked well.
 
 ## 🧪 Testing <a name= "tests"></a>
 
@@ -162,3 +162,4 @@ Give a ⭐️ if you like this project!
 - [Microverse Community](https://www.microverse.org/) <br />
 - [Rails Official Documentation](https://rubyonrails.org/) <br />
 - [Api building tutorial](https://www.digitalocean.com/community/tutorials/build-a-restful-json-api-with-rails-5-part-one)
+
