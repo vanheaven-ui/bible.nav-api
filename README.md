@@ -3,7 +3,11 @@
 
   <a href="https://github.com/vanheaven-ui/bible.nav-ui">
 
-  <img src="logo/logo.png" alt="Logo" width="80" height="80">
+  [Bible.nav: {
+    <br />
+    {}
+    <br />
+  }]
 
   </a>
 
