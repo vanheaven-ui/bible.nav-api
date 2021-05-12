@@ -160,4 +160,5 @@ Give a ⭐️ if you like this project!
 ## :clap: Acknowledgements <a name = "acknowledgements"></a>
 
 - [Microverse Community](https://www.microverse.org/) <br />
-- [React Official Documentation](https://reactjs.org/)
+- [Rails Official Documentation](https://rubyonrails.org/) <br />
+- [Api building tutorial](https://www.digitalocean.com/community/tutorials/build-a-restful-json-api-with-rails-5-part-one)
