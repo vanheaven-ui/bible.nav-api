@@ -1,5 +1,5 @@
 class Api::V1::UsersController < ApplicationController
-  skip_before_action :authorized, only: :signup
+  skip_before_action :authorized, only: :create
 
   def create
     @user = User.create!(signup_params)
