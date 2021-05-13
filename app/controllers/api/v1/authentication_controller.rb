@@ -5,7 +5,7 @@ class Api::V1::AuthenticationController < ApplicationController
     user = User.find_by!(username: login_params[:username])
     if user.authenticate(login_params[:password])
       token = issue_token(user)
-      render json: { user_name: user.username, jwt: token, email:  user.email }
+      render json: { user: { username: user.username, email:  user.email }, jwt: token }
     else
       render json: { error: 'Invalid password' }, status: :unprocessable_entity
     end
