@@ -9,7 +9,7 @@ module ExceptionHandler
 
   included do
     rescue_from ActiveRecord::RecordNotFound do |e|
-      render json: { message: e.message }, status: :not_found
+      render json: { message: e.message }, status: :unauthorized
     end
 
     rescue_from ActiveRecord::RecordInvalid, with: :four_twenty_two
