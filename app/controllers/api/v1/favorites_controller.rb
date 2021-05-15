@@ -7,12 +7,20 @@ class Api::V1::FavoritesController < ApplicationController
   end
 
   def create
-    @favorite = current_user.favorites.create!(favorite_params)
-    render json: { favorite: @favorite }, status: :created
+    @favorite = current_user.favorites.build(favorite_params)
+    if @favorite.save
+      render json: { favorite: @favorite }, status: :created
+    else
+      render json: { error: @favorite.errors.full_messages }, status: :not_acceptable
+    end
   end
 
   def show
-    render json: { favorite: @favorite }
+    if @favorite
+      render json: { favorite: @favorite }
+    else
+      render json: { message: 'Couldn\'t find Favorite' }, status: :not_found
+    end
   end
 
   def destroy
@@ -27,6 +35,6 @@ class Api::V1::FavoritesController < ApplicationController
   end
 
   def set_favorite
-    @favorite = Favorite.find_by!(id: params[:id])
+    @favorite = Favorite.find_by(id: params[:id])
   end
 end
