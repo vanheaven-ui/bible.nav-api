@@ -112,7 +112,7 @@ Once you have a local copy of the entire project on your computer, then:
 With the installations above complete, you are set to locally use the code. Follow these simple steps:
 
 - Run `rails s` or `rails server` to start the Rails server.
-- Type `http://localhost:3000/` in the browser and you should get the index page of the application if everything worked well.
+- When the server starts, test the permitted end points using your preferred API testing tool. I used Postman to test the endpoints. Other tools like Insomnia, httpie also serve to test API end points.
 
 ## 🧪 Testing <a name= "tests"></a>
 
