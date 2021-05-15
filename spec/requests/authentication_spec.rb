@@ -31,8 +31,8 @@ RSpec.describe 'Authentications API', type: :request do
         expect(json['message'].match(/Couldn't find User/))
       end
 
-      it 'returns status code 404' do
-        expect(response).to have_http_status(404)
+      it 'returns status code 401' do
+        expect(response).to have_http_status(401)
       end
     end
   end

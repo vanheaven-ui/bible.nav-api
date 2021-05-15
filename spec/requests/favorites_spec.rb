@@ -62,7 +62,7 @@ RSpec.describe 'Favorites API', type: :request do
   describe 'POST /api/v1/users/user_id/favorites' do
     let(:valid_params) { favorites.first }
     let(:invalid_params) do
-      attributes_for(:favorite, verse_num: '')
+      attributes_for(:favorite, verse: '')
     end
     context 'with valid parameters' do
       before { post "/api/v1/users/#{user_id}/favorites", params: valid_params.to_json, headers: headers }
@@ -78,12 +78,12 @@ RSpec.describe 'Favorites API', type: :request do
 
     context 'with invalid parameters' do
       before { post "/api/v1/users/#{user_id}/favorites", params: invalid_params.to_json, headers: headers }
-      it 'returns status code 422' do
-        expect(response).to have_http_status(422)
+      it 'returns status code 406' do
+        expect(response).to have_http_status(406)
       end
 
       it 'returns failure message' do
-        expect(json['message']).to match(/Validation failed: Verse num can't be blank/)
+        expect(json['error'][0]).to match(/Verse can't be blank/)
       end
     end
   end

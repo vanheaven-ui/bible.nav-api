@@ -30,12 +30,12 @@ RSpec.describe 'Users API', type: :request do
     context 'when request is invalid' do
       before { post '/api/v1/signup', params: invalid_payload.to_json, headers: headers }
 
-      it 'returns status code 422' do
-        expect(response).to have_http_status(422)
+      it 'returns status code 406' do
+        expect(response).to have_http_status(406)
       end
 
       it 'returns failure message' do
-        expect(json['message']).to match(/Validation failed: Password confirmation can't be blank/)
+        expect(json['error'][0]).to match(/Password confirmation can't be blank/)
       end
     end
   end
